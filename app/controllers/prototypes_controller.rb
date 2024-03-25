@@ -53,6 +53,12 @@ class PrototypesController < ApplicationController
     # redirect_to root_path
   # end
 
+  private
+  # classの中にいれる。
+
+  def prototype_params
+    params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
+  end
 
     def move_to_index
       unless current_user.id == @prototype.user_id
@@ -67,8 +73,4 @@ class PrototypesController < ApplicationController
 end
 
 
-  private
 
-  def prototype_params
-    params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
-  end
