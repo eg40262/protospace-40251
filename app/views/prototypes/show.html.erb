@@ -52,7 +52,7 @@
                 <% @comments.each do |comment| %> 
                   <li class="comments_list">
                 <p>
-                  <strong><%= link_to comment.user.name, user_path(@prototype.user), class: :comment_user %></strong>
+                  <strong><%= link_to comment.user.name, user_path(comment.user), class: :comment_user %></strong>
                   <%= comment.text %> 
                 </p> 
               <% end %> 
